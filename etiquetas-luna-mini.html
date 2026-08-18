@@ -12,12 +12,12 @@
 
     @page {
       size: letter;
-      margin: 5mm;
+      margin: 10mm; /* Margen estándar para macOS Print to PDF */
     }
 
     body {
       margin: 0;
-      padding: 0;
+      padding: 10px;
       background-color: #f0f2f5;
       font-family: 'Nunito', sans-serif;
       display: flex;
@@ -25,12 +25,10 @@
     }
 
     .sheet {
-      width: 205.9mm;
-      height: 269.4mm;
+      width: 100%;
+      max-width: 195mm; /* Ancho máximo imprimible */
       background: white;
-      padding: 5mm;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 0;
     }
 
     .section-title {
@@ -39,7 +37,7 @@
       color: #7E57C2;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin: 0 0 4mm 0;
+      margin: 0 0 3mm 0;
       border-bottom: 2px dashed #D1C4E9;
       padding-bottom: 2px;
       text-align: center;
@@ -48,17 +46,19 @@
     .mini-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.8mm;
+      gap: 1.5mm 2mm;
     }
 
     .card-mini {
-      height: 16mm;
+      height: 15.5mm; /* Altura calibrada para 14 filas exactas */
       border-radius: 6px;
       border: 1.2px solid;
       padding: 1mm 1.5mm;
       display: flex;
       align-items: center;
       overflow: hidden;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     .bg-lilac { background-color: #F3E5F5; border-color: #AB47BC; }
@@ -79,7 +79,7 @@
 
     .card-mini .title {
       font-family: 'Fredoka', sans-serif;
-      font-size: 7.5pt;
+      font-size: 7.2pt;
       font-weight: 700;
       color: #1A237E;
       text-overflow: ellipsis;
@@ -87,7 +87,7 @@
     }
 
     .card-mini .subtext {
-      font-size: 5.8pt;
+      font-size: 5.5pt;
       font-weight: 800;
       color: #37474F;
       text-overflow: ellipsis;
@@ -96,8 +96,16 @@
     }
 
     @media print {
-      body { background: none; }
-      .sheet { box-shadow: none; border: none; padding: 0; width: 100%; height: 100%; }
+      body {
+        background: none;
+        padding: 0;
+      }
+      .sheet {
+        box-shadow: none;
+        border: none;
+        width: 100%;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -117,7 +125,7 @@
         const idx = i % 4;
         document.write(`
           <div class="card-mini ${bgClasses[idx]}">
-            <svg width="24" height="24" viewBox="0 0 60 60">
+            <svg width="22" height="22" viewBox="0 0 60 60">
               <polygon points="12,18 5,3 21,11" fill="${fills[idx]}" stroke="${strokeColors[idx]}" stroke-width="1.8"/>
               <polygon points="13,15 8,6 19,11" fill="#FF80AB"/>
               <polygon points="48,18 55,3 39,11" fill="${fills[idx]}" stroke="${strokeColors[idx]}" stroke-width="1.8"/>
@@ -135,10 +143,7 @@
               
               <path d="M 27,35 Q 30,38 30,35 Q 30,38 33,35" stroke="#212121" stroke-width="1.2" fill="none"/>
               <ellipse cx="14" cy="35" rx="3.5" ry="2" fill="#FF4081" opacity="0.5"/>
-              <line x1="12" y1="34" x2="11" y2="37" stroke="#FF1744" stroke-width="1"/>
-              
               <ellipse cx="46" cy="35" rx="3.5" ry="2" fill="#FF4081" opacity="0.5"/>
-              <line x1="48" y1="34" x2="47" y2="37" stroke="#FF1744" stroke-width="1"/>
 
               <line x1="9" y1="30" x2="3" y2="29" stroke="${strokeColors[idx]}" stroke-width="1"/>
               <line x1="9" y1="33" x2="3" y2="34" stroke="${strokeColors[idx]}" stroke-width="1"/>
