@@ -6,14 +6,18 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@700;800;900&display=swap');
 
+    * {
+      box-sizing: border-box;
+    }
+
     @page {
       size: letter;
-      margin: 8mm;
+      margin: 10mm; /* Standard safe margin for macOS print drivers */
     }
 
     body {
       margin: 0;
-      padding: 15px;
+      padding: 10px;
       background-color: #f0f2f5;
       font-family: 'Nunito', sans-serif;
       display: flex;
@@ -21,86 +25,103 @@
     }
 
     .sheet {
-      width: 215.9mm;
-      min-height: 279.4mm;
+      width: 100%;
+      max-width: 195mm; /* Fits inside printable Letter width */
       background: white;
-      padding: 8mm;
-      box-sizing: border-box;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 0;
     }
 
     .section-title {
       font-family: 'Fredoka', sans-serif;
-      font-size: 12pt;
+      font-size: 11pt;
       color: #7E57C2;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 0 0 8px 0;
+      letter-spacing: 0.5px;
+      margin: 0 0 3mm 0;
       border-bottom: 2px dashed #D1C4E9;
-      padding-bottom: 3px;
+      padding-bottom: 2px;
       text-align: center;
     }
 
     .medium-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 4mm;
+      gap: 3mm 4mm;
     }
 
     .card-medium {
-      height: 33mm;
-      border-radius: 14px;
+      height: 31.5mm; /* Tightened height so 7 rows fit on 1 page */
+      border-radius: 12px;
       border: 2px dashed;
-      padding: 2.5mm 3.5mm;
-      box-sizing: border-box;
+      padding: 2mm 3mm;
       display: flex;
       align-items: center;
       position: relative;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
-    /* Paleta Pastel Anime */
     .bg-lilac { background-color: #F3E5F5; border-color: #AB47BC; }
     .bg-mint  { background-color: #E0F2F1; border-color: #26A69A; }
     .bg-pink  { background-color: #FCE4EC; border-color: #EC407A; }
     .bg-blue  { background-color: #E1F5FE; border-color: #29B6F6; }
 
+    .card-medium svg {
+      flex-shrink: 0;
+    }
+
     .card-medium .content {
-      margin-left: 3.5mm;
+      margin-left: 3mm;
       flex-grow: 1;
+      overflow: hidden;
     }
 
     .card-medium .title {
       font-family: 'Fredoka', sans-serif;
-      font-size: 12.5pt;
+      font-size: 11.5pt;
       font-weight: 700;
       color: #311B92;
       line-height: 1.1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     .card-medium .subtext {
-      font-size: 9pt;
+      font-size: 8.5pt;
       font-weight: 800;
       color: #455A64;
-      line-height: 1.25;
-      margin-top: 3px;
+      line-height: 1.2;
+      margin-top: 2px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     .card-medium .field {
       font-family: 'Fredoka', sans-serif;
-      font-size: 9.5pt;
+      font-size: 8.5pt;
       color: #311B92;
-      margin-top: 5px;
+      margin-top: 4px;
     }
 
     .card-medium .line {
       display: inline-block;
-      width: 110px;
-      border-bottom: 2px solid #311B92;
+      width: 90px;
+      border-bottom: 1.5px solid #311B92;
     }
 
     @media print {
-      body { background: none; padding: 0; }
-      .sheet { box-shadow: none; border: none; }
+      body {
+        background: none;
+        padding: 0;
+      }
+      .sheet {
+        box-shadow: none;
+        border: none;
+        width: 100%;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -108,109 +129,41 @@
 
 <div class="sheet">
   <div class="section-title">Etiquetas Medianas • Cuadernos, Libros y Mochila</div>
+
   <div class="medium-grid">
-
-    <!-- 1. MORADO -->
-    <div class="card-medium bg-lilac">
-      <svg width="68" height="68" viewBox="0 0 100 100">
-        <polygon points="22,30 10,6 36,18" fill="#E1BEE7" stroke="#4A148C" stroke-width="2.5"/><polygon points="23,26 15,10 32,18" fill="#FF80AB"/>
-        <polygon points="78,30 90,6 64,18" fill="#E1BEE7" stroke="#4A148C" stroke-width="2.5"/><polygon points="77,26 85,10 68,18" fill="#FF80AB"/>
-        <ellipse cx="50" cy="48" rx="34" ry="28" fill="#E1BEE7" stroke="#4A148C" stroke-width="2.5"/>
-        <ellipse cx="36" cy="46" rx="7" ry="10" fill="#4A148C"/><ellipse cx="36" cy="49" rx="5" ry="6" fill="#7C4DFF"/><circle cx="34" cy="42" r="3" fill="white"/>
-        <ellipse cx="64" cy="46" rx="7" ry="10" fill="#4A148C"/><ellipse cx="64" cy="49" rx="5" ry="6" fill="#7C4DFF"/><circle cx="62" cy="42" r="3" fill="white"/>
-        <polygon points="50,52 48,50 52,50" fill="#FF4081"/><path d="M 45,54 Q 48,57 50,54 Q 52,57 55,54" stroke="#212121" stroke-width="2" fill="none"/>
-        <ellipse cx="26" cy="54" rx="6" ry="3.5" fill="#FF4081" opacity="0.4"/>
-        <ellipse cx="74" cy="54" rx="6" ry="3.5" fill="#FF4081" opacity="0.4"/>
-        <line x1="70" y1="75" x2="85" y2="45" stroke="#8D6E63" stroke-width="2.5"/>
-        <polygon points="85,42 88,48 95,48 89,52 91,58 85,54 79,58 81,52 75,48 82,48" fill="#FFD54F" stroke="#FF6F00" stroke-width="1.5"/>
-      </svg>
-      <div class="content">
-        <div class="title">Luna Natalia Delgado Marmolejo</div>
-        <div class="subtext">4to de Primaria • CEC - Ignacio Luis Vallarta</div>
-        <div class="field">Materia: <span class="line"></span></div>
-      </div>
-    </div>
-
-    <!-- 2. MENTA -->
-    <div class="card-medium bg-mint">
-      <svg width="68" height="68" viewBox="0 0 100 100">
-        <polygon points="22,30 10,6 36,18" fill="#B2DFDB" stroke="#004D40" stroke-width="2.5"/><polygon points="23,26 15,10 32,18" fill="#FF80AB"/>
-        <polygon points="78,30 90,6 64,18" fill="#B2DFDB" stroke="#004D40" stroke-width="2.5"/><polygon points="77,26 85,10 68,18" fill="#FF80AB"/>
-        <circle cx="24" cy="18" r="3" fill="#FF4081"/>
-        <ellipse cx="50" cy="48" rx="34" ry="28" fill="#B2DFDB" stroke="#004D40" stroke-width="2.5"/>
-        <path d="M 30,48 Q 36,40 42,48" stroke="#004D40" stroke-width="3.5" fill="none"/>
-        <ellipse cx="64" cy="46" rx="7" ry="10" fill="#004D40"/><ellipse cx="64" cy="49" rx="5" ry="6" fill="#00897B"/><circle cx="62" cy="42" r="3" fill="white"/>
-        <path d="M 45,53 Q 50,60 55,53 Z" fill="#FF4081" stroke="#212121" stroke-width="1.5"/>
-        <ellipse cx="26" cy="54" rx="6" ry="3.5" fill="#FF4081" opacity="0.4"/>
-        <ellipse cx="74" cy="54" rx="6" ry="3.5" fill="#FF4081" opacity="0.4"/>
-        <rect x="42" y="62" width="16" height="22" rx="3" fill="#FFF8E1" stroke="#FF6F00" stroke-width="1.5"/>
-        <line x1="50" y1="62" x2="54" y2="52" stroke="#FF4081" stroke-width="2.5"/>
-      </svg>
-      <div class="content">
-        <div class="title">Luna Natalia Delgado Marmolejo</div>
-        <div class="subtext">4to de Primaria • CEC - Ignacio Luis Vallarta</div>
-        <div class="field">Materia: <span class="line"></span></div>
-      </div>
-    </div>
-
-    <!-- 3. ROSA -->
-    <div class="card-medium bg-pink">
-      <svg width="68" height="68" viewBox="0 0 100 100">
-        <polygon points="22,30 10,6 36,18" fill="#F8BBD0" stroke="#880E4F" stroke-width="2.5"/><polygon points="23,26 15,10 32,18" fill="#FF80AB"/>
-        <polygon points="78,30 90,6 64,18" fill="#F8BBD0" stroke="#880E4F" stroke-width="2.5"/><polygon points="77,26 85,10 68,18" fill="#FF80AB"/>
-        <path d="M 28,24 C 28,10 68,10 70,24 Z" fill="#E91E63" stroke="#880E4F" stroke-width="2"/>
-        <ellipse cx="50" cy="48" rx="34" ry="28" fill="#F8BBD0" stroke="#880E4F" stroke-width="2.5"/>
-        <ellipse cx="36" cy="46" rx="7" ry="10" fill="#880E4F"/><ellipse cx="36" cy="49" rx="5" ry="6" fill="#FF4081"/><circle cx="34" cy="42" r="3" fill="white"/>
-        <ellipse cx="64" cy="46" rx="7" ry="10" fill="#880E4F"/><ellipse cx="64" cy="49" rx="5" ry="6" fill="#FF4081"/><circle cx="62" cy="42" r="3" fill="white"/>
-        <path d="M 45,53 Q 48,56 50,53 Q 52,56 55,53" stroke="#212121" stroke-width="2" fill="none"/>
-        <ellipse cx="26" cy="54" rx="6" ry="3.5" fill="#FF4081" opacity="0.5"/>
-        <ellipse cx="74" cy="54" rx="6" ry="3.5" fill="#FF4081" opacity="0.5"/>
-        <line x1="68" y1="75" x2="84" y2="50" stroke="#8D6E63" stroke-width="3"/>
-        <path d="M 84,50 Q 88,44 92,48 Q 88,54 84,50 Z" fill="#00E676" stroke="#004D40" stroke-width="1"/>
-      </svg>
-      <div class="content">
-        <div class="title">Luna Natalia Delgado Marmolejo</div>
-        <div class="subtext">4to de Primaria • CEC - Ignacio Luis Vallarta</div>
-        <div class="field">Materia: <span class="line"></span></div>
-      </div>
-    </div>
-
-    <!-- 4. AZUL -->
-    <div class="card-medium bg-blue">
-      <svg width="68" height="68" viewBox="0 0 100 100">
-        <polygon points="22,30 10,6 36,18" fill="#B3E5FC" stroke="#01579B" stroke-width="2.5"/><polygon points="23,26 15,10 32,18" fill="#FF80AB"/>
-        <polygon points="78,30 90,6 64,18" fill="#B3E5FC" stroke="#01579B" stroke-width="2.5"/><polygon points="77,26 85,10 68,18" fill="#FF80AB"/>
-        <path d="M 47,20 A 4 4 0 0 0 53,20 A 3 3 0 0 1 47,20" fill="#FFD54F" stroke="#FF8F00" stroke-width="1"/>
-        <ellipse cx="50" cy="48" rx="34" ry="28" fill="#B3E5FC" stroke="#01579B" stroke-width="2.5"/>
-        <ellipse cx="36" cy="46" rx="7" ry="10" fill="#01579B"/><ellipse cx="36" cy="49" rx="5" ry="6" fill="#0288D1"/><circle cx="34" cy="42" r="3" fill="white"/>
-        <ellipse cx="64" cy="46" rx="7" ry="10" fill="#01579B"/><ellipse cx="64" cy="49" rx="5" ry="6" fill="#0288D1"/><circle cx="62" cy="42" r="3" fill="white"/>
-        <path d="M 45,53 Q 48,56 50,53 Q 52,56 55,53" stroke="#212121" stroke-width="2" fill="none"/>
-        <ellipse cx="26" cy="54" rx="6" ry="3.5" fill="#FF4081" opacity="0.4"/>
-        <ellipse cx="74" cy="54" rx="6" ry="3.5" fill="#FF4081" opacity="0.4"/>
-        <path d="M 34,66 Q 50,62 50,67 Q 50,62 66,66 L 66,80 Q 50,76 50,80 Q 50,76 34,80 Z" fill="#80DEEA" stroke="#00838F" stroke-width="2"/>
-      </svg>
-      <div class="content">
-        <div class="title">Luna Natalia Delgado Marmolejo</div>
-        <div class="subtext">4to de Primaria • CEC - Ignacio Luis Vallarta</div>
-        <div class="field">Materia: <span class="line"></span></div>
-      </div>
-    </div>
-
-    <!-- REPETICIÓN HASTA COMPLETAR 14 ETIQUETAS EN LA HOJA -->
     <script>
-      // Genera las 10 tarjetas restantes para completar 14 en total
       const styles = [
-        { bg: 'bg-lilac', svg: '<polygon points="22,30 10,6 36,18" fill="#E1BEE7" stroke="#4A148C" stroke-width="2.5"/><polygon points="78,30 90,6 64,18" fill="#E1BEE7" stroke="#4A148C" stroke-width="2.5"/><ellipse cx="50" cy="48" rx="34" ry="28" fill="#E1BEE7" stroke="#4A148C" stroke-width="2.5"/><ellipse cx="36" cy="46" rx="7" ry="10" fill="#4A148C"/><circle cx="34" cy="42" r="3" fill="white"/><ellipse cx="64" cy="46" rx="7" ry="10" fill="#4A148C"/><circle cx="62" cy="42" r="3" fill="white"/><polygon points="50,52 48,50 52,50" fill="#FF4081"/><path d="M 45,54 Q 48,57 50,54 Q 52,57 55,54" stroke="#212121" stroke-width="2" fill="none"/><line x1="70" y1="75" x2="85" y2="45" stroke="#8D6E63" stroke-width="2.5"/><polygon points="85,42 88,48 95,48 89,52 91,58 85,54 79,58 81,52 75,48 82,48" fill="#FFD54F" stroke="#FF6F00" stroke-width="1.5"/>' },
-        { bg: 'bg-mint', svg: '<polygon points="22,30 10,6 36,18" fill="#B2DFDB" stroke="#004D40" stroke-width="2.5"/><polygon points="78,30 90,6 64,18" fill="#B2DFDB" stroke="#004D40" stroke-width="2.5"/><ellipse cx="50" cy="48" rx="34" ry="28" fill="#B2DFDB" stroke="#004D40" stroke-width="2.5"/><path d="M 30,48 Q 36,40 42,48" stroke="#004D40" stroke-width="3.5" fill="none"/><ellipse cx="64" cy="46" rx="7" ry="10" fill="#004D40"/><circle cx="62" cy="42" r="3" fill="white"/><path d="M 45,53 Q 50,60 55,53 Z" fill="#FF4081" stroke="#212121" stroke-width="1.5"/><rect x="42" y="62" width="16" height="22" rx="3" fill="#FFF8E1" stroke="#FF6F00" stroke-width="1.5"/><line x1="50" y1="62" x2="54" y2="52" stroke="#FF4081" stroke-width="2.5"/>' },
-        { bg: 'bg-pink', svg: '<polygon points="22,30 10,6 36,18" fill="#F8BBD0" stroke="#880E4F" stroke-width="2.5"/><polygon points="78,30 90,6 64,18" fill="#F8BBD0" stroke="#880E4F" stroke-width="2.5"/><path d="M 28,24 C 28,10 68,10 70,24 Z" fill="#E91E63" stroke="#880E4F" stroke-width="2"/><ellipse cx="50" cy="48" rx="34" ry="28" fill="#F8BBD0" stroke="#880E4F" stroke-width="2.5"/><ellipse cx="36" cy="46" rx="7" ry="10" fill="#880E4F"/><circle cx="34" cy="42" r="3" fill="white"/><ellipse cx="64" cy="46" rx="7" ry="10" fill="#880E4F"/><circle cx="62" cy="42" r="3" fill="white"/><path d="M 45,53 Q 48,56 50,53 Q 52,56 55,53" stroke="#212121" stroke-width="2" fill="none"/><line x1="68" y1="75" x2="84" y2="50" stroke="#8D6E63" stroke-width="3"/><path d="M 84,50 Q 88,44 92,48 Q 88,54 84,50 Z" fill="#00E676" stroke="#004D40" stroke-width="1"/>' },
-        { bg: 'bg-blue', svg: '<polygon points="22,30 10,6 36,18" fill="#B3E5FC" stroke="#01579B" stroke-width="2.5"/><polygon points="78,30 90,6 64,18" fill="#B3E5FC" stroke="#01579B" stroke-width="2.5"/><path d="M 47,20 A 4 4 0 0 0 53,20 A 3 3 0 0 1 47,20" fill="#FFD54F" stroke="#FF8F00" stroke-width="1"/><ellipse cx="50" cy="48" rx="34" ry="28" fill="#B3E5FC" stroke="#01579B" stroke-width="2.5"/><ellipse cx="36" cy="46" rx="7" ry="10" fill="#01579B"/><circle cx="34" cy="42" r="3" fill="white"/><ellipse cx="64" cy="46" rx="7" ry="10" fill="#01579B"/><circle cx="62" cy="42" r="3" fill="white"/><path d="M 45,53 Q 48,56 50,53 Q 52,56 55,53" stroke="#212121" stroke-width="2" fill="none"/><path d="M 34,66 Q 50,62 50,67 Q 50,62 66,66 L 66,80 Q 50,76 50,80 Q 50,76 34,80 Z" fill="#80DEEA" stroke="#00838F" stroke-width="2"/>' }
+        { bg: 'bg-lilac', stroke: '#4A148C', fill: '#E1BEE7', eye: '#7C4DFF', accent: '#FF4081' },
+        { bg: 'bg-mint',  stroke: '#004D40', fill: '#B2DFDB', eye: '#00897B', accent: '#FF4081' },
+        { bg: 'bg-pink',  stroke: '#880E4F', fill: '#F8BBD0', eye: '#FF4081', accent: '#D81B60' },
+        { bg: 'bg-blue',  stroke: '#01579B', fill: '#B3E5FC', eye: '#0288D1', accent: '#FF4081' }
       ];
 
-      for(let i = 4; i < 14; i++) {
+      for(let i = 0; i < 14; i++) {
         const s = styles[i % 4];
         document.write(`
           <div class="card-medium ${s.bg}">
-            <svg width="68" height="68" viewBox="0 0 100 100">${s.svg}</svg>
+            <svg width="58" height="58" viewBox="0 0 100 100">
+              <polygon points="22,30 10,6 36,18" fill="${s.fill}" stroke="${s.stroke}" stroke-width="2.5"/>
+              <polygon points="23,26 15,10 32,18" fill="#FF80AB"/>
+              <polygon points="78,30 90,6 64,18" fill="${s.fill}" stroke="${s.stroke}" stroke-width="2.5"/>
+              <polygon points="77,26 85,10 68,18" fill="#FF80AB"/>
+              
+              <ellipse cx="50" cy="48" rx="34" ry="28" fill="${s.fill}" stroke="${s.stroke}" stroke-width="2.5"/>
+              
+              <ellipse cx="36" cy="46" rx="7" ry="10" fill="${s.stroke}"/>
+              <ellipse cx="36" cy="49" rx="5" ry="6" fill="${s.eye}"/>
+              <circle cx="34" cy="42" r="3" fill="white"/>
+              
+              <ellipse cx="64" cy="46" rx="7" ry="10" fill="${s.stroke}"/>
+              <ellipse cx="64" cy="49" rx="5" ry="6" fill="${s.eye}"/>
+              <circle cx="62" cy="42" r="3" fill="white"/>
+              
+              <polygon points="50,52 48,50 52,50" fill="${s.accent}"/>
+              <path d="M 45,54 Q 48,57 50,54 Q 52,57 55,54" stroke="#212121" stroke-width="2" fill="none"/>
+              <ellipse cx="26" cy="54" rx="6" ry="3.5" fill="${s.accent}" opacity="0.4"/>
+              <ellipse cx="74" cy="54" rx="6" ry="3.5" fill="${s.accent}" opacity="0.4"/>
+            </svg>
             <div class="content">
               <div class="title">Luna Natalia Delgado Marmolejo</div>
               <div class="subtext">4to de Primaria • CEC - Ignacio Luis Vallarta</div>
@@ -220,7 +173,6 @@
         `);
       }
     </script>
-
   </div>
 </div>
 
