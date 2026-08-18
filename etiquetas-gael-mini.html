@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Etiquetas Mini Robots Tiernos - Gael Santiago</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Roboto+Condensed:wght@700;800&display=swap');
+
+    * { box-sizing: border-box; }
+
+    @page {
+      size: letter;
+      margin: 10mm;
+      background-color: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 10px;
+      background-color: #ffffff;
+      font-family: 'Roboto Condensed', sans-serif;
+      display: flex;
+      justify-content: center;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sheet {
+      width: 100%;
+      max-width: 195mm;
+      background: #ffffff;
+      padding: 0;
+    }
+
+    .section-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 12pt;
+      font-weight: 700;
+      color: #0F172A;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 0 0 3mm 0;
+      border-bottom: 2.5px dashed #3B82F6;
+      padding-bottom: 4px;
+      text-align: center;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5mm 2mm;
+    }
+
+    .card-mini {
+      height: 16.5mm; /* Slightly taller to accommodate two lines comfortably */
+      border-radius: 6px;
+      border: 2px solid;
+      padding: 1mm 1.5mm;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      background-color: #FFFFFF;
+    }
+
+    .border-blue   { border-color: #3B82F6; box-shadow: inset 0 0 0 0.5px #3B82F6; }
+    .border-orange { border-color: #F97316; box-shadow: inset 0 0 0 0.5px #F97316; }
+    .border-teal   { border-color: #14B8A6; box-shadow: inset 0 0 0 0.5px #14B8A6; }
+    .border-pink   { border-color: #EC4899; box-shadow: inset 0 0 0 0.5px #EC4899; }
+
+    .card-mini svg { flex-shrink: 0; }
+
+    .card-mini .content {
+      margin-left: 1.5mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .card-mini .title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 5.5pt; /* Reduced to fit long name */
+      font-weight: 700;
+      color: #0F172A;
+      text-transform: uppercase;
+      line-height: 1.1;
+      white-space: normal; /* Allows wrapping to two lines */
+    }
+
+    .card-mini .subtext {
+      font-size: 5pt;
+      font-weight: 800;
+      color: #2563EB;
+      text-transform: uppercase;
+      margin-top: 1.5px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .sheet { box-shadow: none; border: none; width: 100%; max-width: 100%; background: white; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="sheet">
+  <div class="section-title">🤖 Etiquetas Mini • Cute Robots Edition</div>
+
+  <div class="mini-grid">
+    <script>
+      const bgClasses = ['border-blue', 'border-orange', 'border-teal', 'border-pink'];
+      const icons = [
+        // 1. Cute Boxy Robot
+        `<svg width="22" height="22" viewBox="0 0 60 60"><line x1="30" y1="4" x2="30" y2="12" stroke="#0F172A" stroke-width="2.5"/><circle cx="30" cy="4" r="3" fill="#EF4444"/><rect x="15" y="12" width="30" height="22" rx="5" fill="#60A5FA" stroke="#0F172A" stroke-width="2"/><circle cx="23" cy="21" r="3.5" fill="#0F172A"/><circle cx="37" cy="21" r="3.5" fill="#0F172A"/><circle cx="24.5" cy="19.5" r="1.2" fill="#FFF"/><circle cx="38.5" cy="19.5" r="1.2" fill="#FFF"/><path d="M 24 28 Q 30 33 36 28" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/><ellipse cx="18" cy="26" rx="2" ry="1" fill="#F472B6"/><ellipse cx="42" cy="26" rx="2" ry="1" fill="#F472B6"/><rect x="18" y="38" width="24" height="16" rx="3" fill="#93C5FD" stroke="#0F172A" stroke-width="2"/><circle cx="30" cy="46" r="3" fill="#3B82F6"/></svg>`,
+        // 2. Cute WALL-E Style Robot
+        `<svg width="22" height="22" viewBox="0 0 60 60"><ellipse cx="20" cy="16" rx="8" ry="6" fill="#F97316" stroke="#0F172A" stroke-width="2"/><ellipse cx="40" cy="16" rx="8" ry="6" fill="#F97316" stroke="#0F172A" stroke-width="2"/><circle cx="20" cy="16" r="4" fill="#0F172A"/><circle cx="40" cy="16" r="4" fill="#0F172A"/><circle cx="21.5" cy="14.5" r="1.5" fill="#FFF"/><circle cx="41.5" cy="14.5" r="1.5" fill="#FFF"/><rect x="27" y="22" width="6" height="6" fill="#64748B"/><rect x="16" y="28" width="28" height="20" rx="4" fill="#FBBF24" stroke="#0F172A" stroke-width="2"/><rect x="21" y="32" width="18" height="8" rx="2" fill="#FFF" stroke="#0F172A" stroke-width="1.5"/><path d="M 25 36 Q 30 39 35 36" fill="none" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/><rect x="12" y="48" width="36" height="8" rx="3" fill="#334155"/></svg>`,
+        // 3. Round Antenna Bot
+        `<svg width="22" height="22" viewBox="0 0 60 60"><line x1="30" y1="6" x2="30" y2="14" stroke="#0F172A" stroke-width="2.5"/><circle cx="30" cy="5" r="3.5" fill="#FACC15"/><circle cx="30" cy="30" r="17" fill="#2DD4BF" stroke="#0F172A" stroke-width="2"/><rect x="18" y="22" width="24" height="12" rx="6" fill="#FFF" stroke="#0F172A" stroke-width="1.5"/><circle cx="24" cy="28" r="3" fill="#0F172A"/><circle cx="36" cy="28" r="3" fill="#0F172A"/><circle cx="25" cy="27" r="1" fill="#FFF"/><circle cx="37" cy="27" r="1" fill="#FFF"/><path d="M 27 38 Q 30 42 33 38" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/><rect x="24" y="48" width="12" height="8" rx="2" fill="#0D9488" stroke="#0F172A" stroke-width="1.5"/></svg>`,
+        // 4. Flying Saucer Droid
+        `<svg width="22" height="22" viewBox="0 0 60 60"><path d="M 20 26 A 12 12 0 0 1 40 26 Z" fill="#F472B6" stroke="#0F172A" stroke-width="2"/><ellipse cx="30" cy="30" rx="22" ry="8" fill="#EC4899" stroke="#0F172A" stroke-width="2"/><circle cx="22" cy="24" r="3" fill="#0F172A"/><circle cx="38" cy="24" r="3" fill="#0F172A"/><circle cx="23" cy="23" r="1" fill="#FFF"/><circle cx="39" cy="23" r="1" fill="#FFF"/><path d="M 27 27 Q 30 30 33 27" fill="none" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="32" r="2" fill="#FACC15"/><circle cx="30" cy="34" r="2" fill="#FACC15"/><circle cx="44" cy="32" r="2" fill="#FACC15"/><path d="M 24 38 L 20 48 M 36 38 L 40 48" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/></svg>`
+      ];
+
+      for(let i = 0; i < 56; i++) {
+        const idx = i % 4;
+        document.write(`
+          <div class="card-mini ${bgClasses[idx]}">
+            ${icons[idx]}
+            <div class="content">
+              <div class="title">Gael Santiago Delgado Marmolejo</div>
+              <div class="subtext">CAM 11 - Noroña Calderón</div>
+            </div>
+          </div>
+        `);
+      }
+    </script>
+  </div>
+</div>
+
+</body>
+</html>
